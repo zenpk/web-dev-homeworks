@@ -1,4 +1,4 @@
 FROM openjdk:latest
 VOLUME /tmp
-COPY ./target/*.jar /temp.jar
-ENTRYPOINT ["java","-jar","/temp.jar"]
+COPY ./target/*.jar /target.jar
+ENTRYPOINT ["java","-jar","/target.jar"]
