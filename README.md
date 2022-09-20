@@ -56,6 +56,10 @@ docker build -t zenpk/basic:v1 .
 由于腾讯云访问 GitHub 太慢，因此上述步骤均在本地完成，将 image push 到 docker hub 上，再 pull 到服务器并运行
 ```shell
 docker pull zenpk/basic:v1
-docker run --rm -it --name basic-backend zenpk/basic:v1
+docker run --rm -it --name basic_backend -p 8080:8080 zenpk/basic:v1
+```
+此时后端程序并不能正常访问数据库，原因是 localhost 指向了 container 内部的网络，因此需要修改 JPA 的设置，将数据库地址纸箱 host.docker.internal，并在运行的时候指定该地址为宿主机的地址
+```shell
+docker run --rm -it --name basic_backend -p 8080:8080 --add-host host.docker.internal:host-gateway zenpk/basic:v1
 ```
 现在即可访问 http://101.43.179.27:8080/show 查看结果 

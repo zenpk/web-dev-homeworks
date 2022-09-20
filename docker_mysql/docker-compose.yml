@@ -1,9 +1,9 @@
 version: "1.0"
 services:
-  mysql:
+  docker_mysql:
     image: mysql:latest
     restart: always
-    container_name: mysql_docker
+    container_name: docker_mysql
     environment:
       - "MYSQL_ROOT_PASSWORD=12345" # root 用户密码
     ports:
