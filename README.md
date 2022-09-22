@@ -62,4 +62,4 @@ docker run --rm -it --name basic_backend -p 8080:8080 zenpk/basic:v1
 ```shell
 docker run --rm -it --name basic_backend -p 8080:8080 --add-host host.docker.internal:host-gateway zenpk/basic:v1
 ```
-现在即可访问 http://101.43.179.27:8080/show 查看结果 
+现在即可访问 http://{serverIP}:8080/show 查看结果 
